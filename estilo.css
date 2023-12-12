@@ -1,17 +1,17 @@
 .foto1{
-  background: url(IMG/foto1.jpg);
+  background: url(foto1.jpg);
 }
 .foto2{
-  background: url(IMG/foto2.jpg);
+  background: url(foto2.jpg);
 }
 .foto3{
-  background: url(IMG/foto3.jpg);
+  background: url(foto3.jpg);
 }
 .foto4{
-  background: url(IMG/foto4.jpg);
+  background: url(foto4.jpg);
 }
 .foto5{
-  background: url(IMG/foto5.jpg);
+  background: url(foto5.jpg);
 }
 #menu{
   float: left;
