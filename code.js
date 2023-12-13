@@ -12,26 +12,48 @@ function removeActiveClasses() {
         panel.classList.remove('active')
     })
 }
-const buttons = document.querySelectorAll('.ripple')
 
-buttons.forEach(button => {
-    button.addEventListener('click', function (e) {
-        const x = e.pageX
-        const y = e.pageY
+const boxes = document.querySelectorAll('.box')
 
-        const buttonTop = e.target.offsetTop
-        const buttonLeft = e.target.offsetLeft
+window.addEventListener('scroll', checkBoxes)
 
-        const xInside = x - buttonLeft
-        const yInside = y - buttonTop
+checkBoxes()
 
-        const circle = document.createElement('span')
-        circle.classList.add('circle')
-        circle.style.top = yInside + 'px'
-        circle.style.left = xInside + 'px'
+function checkBoxes() {
+    const triggerBottom = window.innerHeight / 5 * 4
 
-        this.appendChild(circle)
+    boxes.forEach(box => {
+        const boxTop = box.getBoundingClientRect().top
 
-        setTimeout(() => circle.remove(), 500)
+        if(boxTop < triggerBottom) {
+            box.classList.add('show')
+        } else {
+            box.classList.remove('show')
+        }
     })
+}
+const sounds = ['wrong']
+
+sounds.forEach(sound => {
+    const btn = document.createElement('button')
+    btn.classList.add('btn')
+
+    btn.innerText = sound
+
+    btn.addEventListener('click', () => {
+        stopSongs()
+
+        document.getElementById(sound).play()
+    })
+
+    document.getElementById('buttons').appendChild(btn)
 })
+
+function stopSongs() {
+    sounds.forEach(sound => {
+        const song = document.getElementById(sound)
+
+        song.pause()
+        song.currentTime = 0;
+    })
+}
