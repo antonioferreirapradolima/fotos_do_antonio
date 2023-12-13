@@ -159,6 +159,11 @@ h1 {
   float: left;
   margin-top: 0%;
 }
+@media screen and (max-width: 450px) {
+  #menu{visibility: hidden;}
+  .p{visibility: hidden;}
+}
+
 .dois {
   width: 40%;
 }
